@@ -1,34 +1,55 @@
-import axios from "../setup/axios";
-
+// import axios from "../setup/axios";
+import axios from "axios";
 const registerNewUser = (rawData) => {
   const { confirmPassword, ...dataWithoutConfirmPassword } = rawData;
-  return axios.post("/register", dataWithoutConfirmPassword);
+  return axios.post(
+    "https://traceabilitychain-project-backend.onrender.com/api/v1/register",
+    dataWithoutConfirmPassword
+  );
 };
 
 const loginUser = (loginInputs) => {
   const { valueLogin, password } = loginInputs;
-  return axios.post("/login", { valueLogin, password });
+  return axios.post(
+    "https://traceabilitychain-project-backend.onrender.com/api/v1/login",
+    { valueLogin, password }
+  );
 };
 const logoutUser = () => {
-  return axios.post("/logout");
+  return axios.post(
+    "https://traceabilitychain-project-backend.onrender.com/api/v1/logout"
+  );
 };
 // USERS
 const fetchAllUser = (page, limit) => {
-  return axios.get(`/user/read?page=${page}&limit=${limit}`);
+  return axios.get(
+    `https://traceabilitychain-project-backend.onrender.com/api/v1/user/read?page=${page}&limit=${limit}`
+  );
 };
 const createNewUser = (userData) => {
-  return axios.post("/user/create", { ...userData });
+  return axios.post(
+    "https://traceabilitychain-project-backend.onrender.com/api/v1/user/create",
+    { ...userData }
+  );
 };
 const updateUser = (userData) => {
-  return axios.put("/user/update", { ...userData });
+  return axios.put(
+    "https://traceabilitychain-project-backend.onrender.com/api/v1/user/update",
+    { ...userData }
+  );
 };
 const deleteUser = (user) => {
-  return axios.delete("/user/delete", { data: { id: user.id } });
+  return axios.delete(
+    "https://traceabilitychain-project-backend.onrender.com/api/v1/user/delete",
+    { data: { id: user.id } }
+  );
 };
 
 // ACCOUNT
 const getUserAccount = () => {
-  return axios.get(`/account`);
+  return axios.get(
+    `https://traceabilitychain-project-backend.onrender.com/api/v1/account`
+  );
 };
 
 export {
