@@ -12,7 +12,7 @@ function ModalProduct(props) {
       .then(function (dataUrl) {
         const link = document.createElement("a");
         link.href = dataUrl;
-        link.download = "qr-code.png";
+        link.download = `${dataModal?.name}.png`;
         link.click();
         onHide();
       })
@@ -28,7 +28,7 @@ function ModalProduct(props) {
         </Modal.Header>
         <Modal.Body className="center" ref={qrCodeRef}>
           <QRCode
-            value={`${window.location.href}/products/${dataModal?.pId}`}
+            value={`${process.env.CLIENT_URL}/public/product/${dataModal?.pId}`}
             size={300}
             className="center"
           />
