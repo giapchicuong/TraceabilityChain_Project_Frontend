@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 // Set config defaults when creating the instance
 const instance = axios.create({
-  baseURL: `${process.env.API_URL}/api/v1/`,
+  baseURL: `https://traceabilitychain-project-backend.onrender.com/api/v1/`,
 });
 
 instance.defaults.withCredentials = true;
